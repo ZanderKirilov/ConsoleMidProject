@@ -1,5 +1,7 @@
 package users;
 
+import stages.Stage;
+
 public class User implements Comparable<User>{
 
 	private String username;
@@ -7,6 +9,8 @@ public class User implements Comparable<User>{
 	private String email;
 	private static int statID = 1;
 	private int currentID;
+	private Stage CurrentStage;
+	
 	
 	
 	public User(String username, String password, String email) {
@@ -16,10 +20,6 @@ public class User implements Comparable<User>{
 		this.currentID = statID++;
 	}
 
-
-	public String getPassword() {
-		return this.password;
-	}
 
 
 	@Override
