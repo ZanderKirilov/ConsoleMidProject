@@ -12,6 +12,7 @@ import java.io.OutputStreamWriter;
 
 
 import stages.Intro;
+import stages.Stage;
 import startPack.Start;
 import users.User;
 import utilities.Utility;
@@ -48,5 +49,6 @@ public class Demo {
 			break;
 		}
 		currentUser.showProffile();
+		currentUser.attendStage();
 	}
 }

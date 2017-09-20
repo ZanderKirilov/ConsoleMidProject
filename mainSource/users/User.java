@@ -1,5 +1,7 @@
 package users;
 
+import java.util.ArrayList;
+
 import stages.Intro;
 import stages.Stage;
 
@@ -13,6 +15,8 @@ public class User implements Comparable<User>{
 	private int currentID;
 	private Stage CurrentStage;
 	
+	private ArrayList<Stage> availableStages = new ArrayList<>();
+	
 	
 	
 	public User(String username, String password, String email) {
@@ -24,6 +28,7 @@ public class User implements Comparable<User>{
 		this.points = 10;
 		//Default Stage,(StartStage)
 		this.CurrentStage = new Intro();
+		availableStages.add(CurrentStage);
 	}
 
 
@@ -40,6 +45,12 @@ public class User implements Comparable<User>{
 		System.out.println("Current Stage : " + this.CurrentStage.toString());
 		System.out.println("Points : " + this.points);
 		System.out.println("E-mail : " + this.email);
+	}
+
+
+
+	public void attendStage() {
+		this.CurrentStage.showPage();
 	}
 
 }
