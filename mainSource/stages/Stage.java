@@ -15,6 +15,8 @@ import java.util.TreeMap;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.XMLReaderAdapter;
 
+import utilities.Utility;
+
 
 public abstract class Stage implements Serializable {
 
@@ -70,7 +72,29 @@ public abstract class Stage implements Serializable {
 			System.out.println(ent.getValue());
 		}
 	}
-	public void addInfo(String title, String text) {
-		listove.put(title, text);
+	
+	//RandomInfo for the page(Just for test)
+	protected void addRandomInfo() {
+		for (int i = 0; i < 10; i++) {
+			listove.put(Utility.generateSubTitle("Intro"), Utility.generateRandomString());		
+		}
 	}
+
+	@Override
+	public String toString() {
+		return mainTitle;
+		
+	}
+
+	public void showPage() {
+		for (Iterator<Entry<String, String>> it = listove.entrySet().iterator(); it.hasNext();) {
+			Entry<String, String> ent = it.next();
+			System.out.println(ent.getKey());
+			System.out.println(ent.getValue());
+			System.out.println("Press Enter to continue!");
+			Utility.SCAN.nextLine();
+			
+		}
+	}
+	
 }
