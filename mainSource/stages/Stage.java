@@ -73,4 +73,11 @@ public abstract class Stage implements Serializable {
 	public void addInfo(String title, String text) {
 		listove.put(title, text);
 	}
+
+	@Override
+	public String toString() {
+		return mainTitle;
+		
+	}
+	
 }

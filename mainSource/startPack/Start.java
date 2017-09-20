@@ -49,10 +49,10 @@ public class Start {
 			email = Utility.SCAN.nextLine();
 		}
 		
-		User temp = new User(username, password, email);
+		User userObj = new User(username, password, email);
 		allUsers.put(username, new TreeMap<>());
-		allUsers.get(username).put(temp, password);
-		return temp;
+		allUsers.get(username).put(userObj, password);
+		return userObj;
 	}
 	public static User logIn() {
 		System.out.println("Please enter username:");
@@ -91,11 +91,15 @@ public class Start {
 		
 		
 	}
-	
+	public static User forgottenPassword() {
+		System.out.println("Your new pass is .....");
+		return Start.logIn();
+	}
 	
 	private static boolean isValid(String password) {
 		String regSet = "^[a-zA-Z0-9_]*$";
 	    return password.matches(regSet);
 	}
+	
 	
 }

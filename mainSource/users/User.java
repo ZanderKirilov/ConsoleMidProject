@@ -1,5 +1,6 @@
 package users;
 
+import stages.Intro;
 import stages.Stage;
 
 public class User implements Comparable<User>{
@@ -7,6 +8,7 @@ public class User implements Comparable<User>{
 	private String username;
 	private String password;
 	private String email;
+	private int points;
 	private static int statID = 1;
 	private int currentID;
 	private Stage CurrentStage;
@@ -18,6 +20,10 @@ public class User implements Comparable<User>{
 		this.password = password;
 		this.email = email;
 		this.currentID = statID++;
+		//Default points(StartValue)
+		this.points = 10;
+		//Default Stage,(StartStage)
+		this.CurrentStage = new Intro();
 	}
 
 
@@ -25,6 +31,15 @@ public class User implements Comparable<User>{
 	@Override
 	public int compareTo(User o) {
 		return o.currentID - o.currentID;
+	}
+
+
+
+	public void showProffile() {
+		System.out.println("\tUsername : " + this.username);
+		System.out.println("Current Stage : " + this.CurrentStage.toString());
+		System.out.println("Points : " + this.points);
+		System.out.println("E-mail : " + this.email);
 	}
 
 }
